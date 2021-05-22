@@ -160,17 +160,7 @@ def draw_scatter():
         except:
             return 'Other'  
     # Create a Continent column: 
-    DATA['Continent'] = DATA['Country'].apply(country_2_continent)  
-    regions = DATA['Continent'].unique()
-    re2color = dict()
-
-    for i, region in enumerate(regions):
-        re2color[region] = i
-    
-    def region_2_color(continent_name):
-        return re2color[continent_name]
-    
-    DATA['color'] = DATA['Continent'].apply(region_2_color)         
+    DATA['Continent'] = DATA['Country'].apply(country_2_continent)    
 
     cols = ['GDP per Capita','Social Support', 'Life Expectancy', 'Freedom', 'Corruption', 'Generosity']
     scatters = []
