@@ -7,12 +7,9 @@ import plotly.express as px
 import plotly.figure_factory as ff
 import json
 import os
-import pycountry_convert as pc
 
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 DATA = pd.read_csv(os.path.join(THIS_FOLDER, 'static/data/2015.csv'))
-DATA.rename(columns = {'Economy (GDP per Capita)':'GDP per Capita', 'Family':'Social Support', 'Health (Life Expectancy)':'Life Expectancy'
-                     , 'Trust (Government Corruption)':'Corruption'}, inplace=True)
 
 def draw_mapplot():
     # Numerical columns of DATA
@@ -140,28 +137,6 @@ def draw_boxplot():
 
 
 def draw_scatter():    
-
-    def country_2_continent(country_name):
-        try:
-            if country_name in ['Holy See', 'Kosovo']:
-                return 'Europe'
-            if country_name in ['North Cyprus','East Timor','Timor-Leste','West Bank and Gaza','Palestinian Territories','Taiwan Province of China','Hong Kong S.A.R., China']:
-                return 'Asia'
-            if country_name in ['Congo (Brazzaville)','Congo (Kinshasa)','Somaliland region', 'Somaliland Region']:
-                return 'Africa'
-            if country_name in ['Trinidad & Tobago']:
-                return 'South America'
-            else:
-                country_alpha2 = pc.country_name_to_country_alpha2(country_name)
-                country_continent_code = pc.country_alpha2_to_continent_code(country_alpha2)
-                country_continent_name = pc.convert_continent_code_to_continent_name(country_continent_code)
-                return country_continent_name
-        
-        except:
-            return 'Other'  
-    # Create a Continent column: 
-    DATA['Continent'] = DATA['Country'].apply(country_2_continent)    
-
     cols = ['GDP per Capita','Social Support', 'Life Expectancy', 'Freedom', 'Corruption', 'Generosity']
     scatters = []
     for value in cols: 
