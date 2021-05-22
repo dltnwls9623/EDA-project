@@ -10939,7 +10939,7 @@ hr.divider-light {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
-  background: linear-gradient(to bottom, rgba(30, 30, 30, 0.5) 0%, rgba(70, 70, 70, 0.5) 100%), url("../assets/img/color.jpg");
+  background: linear-gradient(to bottom, rgba(30, 30, 30, 0.5) 0%, rgba(70, 70, 70, 0.5) 100%), url("/assets/img/color.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
