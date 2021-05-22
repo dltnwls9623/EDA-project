@@ -36,8 +36,7 @@ def draw_mapplot():
 
         buttons.append(dict(label=value
                             , method='update'
-                            , args=[{'visible':list(visible==value)}
-                            , {'title':f"<b>{value}</b>"}]))
+                            , args=[{'visible':list(visible==value)}, {'title':f'<b>{value}</b>'}]))
 
     updatemenus = [{'active':0
                     ,'buttons':buttons
