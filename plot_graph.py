@@ -33,10 +33,10 @@ def draw_mapplot():
                                     , reversescale=True
                                 )
                     )
-
+        txt = f'<b>{value}<b>'
         buttons.append(dict(label=value
                             , method='update'
-                            , args=[{'visible':list(visible==value)}, {'title':f'<b>{value}</b>'}]))
+                            , args=[{'visible':list(visible==value)}, {'title':txt}]))
 
     updatemenus = [{'active':0
                     ,'buttons':buttons
